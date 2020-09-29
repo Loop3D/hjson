@@ -1,0 +1,37 @@
+{% set name = "hjson" %}
+{% set version = "0.1.0" %} 
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+   git_url : https://github.com/hjson/hjson-py
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - setuptools
+    - python>=3.7,<3.8
+  run:
+    - python>=3.7,<3.8
+
+test:
+  imports:
+    - hjson
+
+about:
+  home: "https://github.com/hjson/hjson-py"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Human readable json with comments."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - yohanderose
